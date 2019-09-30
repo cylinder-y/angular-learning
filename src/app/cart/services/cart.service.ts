@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-
-import { Product, Category } from '../../shared/models/product';
+import { Cart } from '../models/cart';
+import { Category } from 'src/app/shared/models/product';
 
 @Injectable()
-export class ProductService {
+export class CartService {
 
   constructor() { }
 
-  public getProducts() {
-    const products: Product[] = [
-      {
+  getCart() {
+    const cart: Cart = {
+      products : [{
         name: 'Macbook',
         category: Category.Laptops,
         description: 'Best laptop for front-end engineer',
@@ -29,9 +29,9 @@ export class ProductService {
         description: 'Just laptop produced by apple',
         price: 800,
         isAvaliable: true
-      },
-    ];
+      }]
+    };
 
-    return products;
+    return cart;
   }
 }
