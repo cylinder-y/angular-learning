@@ -1,5 +1,6 @@
 <h2>Cart Component</h2>
-<div *ngIf="cart.products.length > 0;else emptyBlock">
+<div *ngIf="cart.size > 0;else emptyBlock">
+    <p>Your cart size is : {{cart.size}}</p>
     <ul *ngFor="let product of cart.products">
         <li>{{product.name}}</li>
     </ul>
