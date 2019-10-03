@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
+    this.cart.size = this.cart.products.length;
   }
 
 }

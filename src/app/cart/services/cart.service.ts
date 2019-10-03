@@ -13,23 +13,19 @@ export class CartService {
         name: 'Macbook',
         category: Category.Laptops,
         description: 'Best laptop for front-end engineer',
-        price: 1200,
-        isAvaliable: true // а это свойство не лишнее?
-        // Наверное стоит добавить количество купленого товара
+        price: 1200
       },
       {
         name: 'iPhone X',
         category: Category.SmartPhones,
         description: 'The old one',
-        price: 800,
-        isAvaliable: true
+        price: 800
       },
       {
         name: 'iPad',
         category: Category.Laptops,
         description: 'Just laptop produced by apple',
-        price: 800,
-        isAvaliable: true
+        price: 800
       }]
     };
 
