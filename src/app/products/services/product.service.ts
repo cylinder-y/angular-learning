@@ -28,7 +28,7 @@ export class ProductService {
         category: Category.Laptops,
         description: 'Just laptop produced by apple',
         price: 800,
-        isAvaliable: true
+        isAvaliable: false
       },
     ];
 

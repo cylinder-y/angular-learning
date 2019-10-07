@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../shared/models/product';
@@ -16,6 +16,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.productservice.getProducts();
+  }
+
+  onAddToCart(product: Product) {
+    console.log('From Product List', product);
+    // TODO add product to cart
   }
 
 }

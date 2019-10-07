@@ -5,4 +5,5 @@
     <li>Description: {{product.description}}</li>
     <li>Category: {{product.category}}</li>
     <li>Is avaliable? {{product.isAvaliable}}</li>
+    <button *ngIf="product.isAvaliable" (click)="onAddToCart($event)">Add</button>
 </ul>
