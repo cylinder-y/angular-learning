@@ -26,7 +26,8 @@ export class CartService {
         category: Category.Laptops,
         description: 'Just laptop produced by apple',
         price: 800
-      }]
+      }],
+      size : 3
     };
 
     return cart;
