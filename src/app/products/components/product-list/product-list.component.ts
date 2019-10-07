@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../shared/models/product';
+import { CartService } from 'src/app/cart/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ import { Product } from '../../../shared/models/product';
 export class ProductListComponent implements OnInit {
   products: Array<Product>;
 
-  constructor(public productservice: ProductService) { }
+  constructor(public productservice: ProductService, public cartService: CartService) { }
 
   ngOnInit() {
     this.products = this.productservice.getProducts();
@@ -20,7 +21,8 @@ export class ProductListComponent implements OnInit {
 
   onAddToCart(product: Product) {
     console.log('From Product List', product);
-    // TODO add product to cart
+    this.cartService.publishData(product);
+    // this.cartService.addProduct(product);
   }
 
 }

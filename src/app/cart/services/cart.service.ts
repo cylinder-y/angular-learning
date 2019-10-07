@@ -1,35 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Cart } from '../models/cart';
-import { Category } from 'src/app/shared/models/product';
+import { Category, Product } from 'src/app/shared/models/product';
+import { Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CartService {
+
+  cart: Cart = {
+    products: [{
+      category: Category.Laptops,
+      description: 'desc',
+      isAvaliable: null,
+      name: 'name',
+      price: 20
+    }]
+  };
+
+  private channel = new Subject<Product>();
+
+  public channel$ = this.channel.asObservable();
+
+  publishData(data: Product) {
+    this.channel.next(data);
+    console.log('Publishin', this.cart);
+  }
 
   constructor() { }
 
-  getCart() {
-    const cart: Cart = {
-      products : [{
-        name: 'Macbook',
-        category: Category.Laptops,
-        description: 'Best laptop for front-end engineer',
-        price: 1200
-      },
-      {
-        name: 'iPhone X',
-        category: Category.SmartPhones,
-        description: 'The old one',
-        price: 800
-      },
-      {
-        name: 'iPad',
-        category: Category.Laptops,
-        description: 'Just laptop produced by apple',
-        price: 800
-      }],
-      size : 3
-    };
-
-    return cart;
-  }
+  // public addProduct(product: Product) {
+  //   this.cart.products.push(product);
+  //   console.log('From cart service', this.cart);
+  // }
 }
